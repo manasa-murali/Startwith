@@ -2,6 +2,7 @@ package com.example.manasa_pt1119.startwit;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
@@ -18,6 +19,7 @@ public class BoundedRect extends View {
 
     ShapeDrawable shapeDrawable;
 Paint paint;
+    RelativeLayout relativeLayout;
 
     int ulx,uly,urx,ury,dlx,dly,drx,dry;
    public  BoundedRect(Context context)
@@ -28,13 +30,9 @@ Paint paint;
 
     public void showAllClickable(RelativeLayout relativeLayout)
     {
-
+        this.relativeLayout=relativeLayout;
+        relativeLayout.setBackgroundColor(Color.BLUE);
         relativeLayout.setVisibility(View.VISIBLE);
-        for(int i=0;i<100;i++)
-            for(int j=0;j<1000;j++);
-        relativeLayout.setVisibility(View.INVISIBLE);
-
-
 
 
     }

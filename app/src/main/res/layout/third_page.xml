@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_three">
@@ -10,4 +10,15 @@
         android:id="@+id/image_page3"
         />
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="595px"
+        android:layout_height="222px"
+        android:layout_marginLeft="300px"
+        android:id="@+id/rel3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp">
+    </RelativeLayout>
+
+
+</RelativeLayout>

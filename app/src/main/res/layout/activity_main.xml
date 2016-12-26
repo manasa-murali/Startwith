@@ -14,5 +14,12 @@
 
     android:id="@+id/image_main"
     />
+    <RelativeLayout
+        android:layout_width="178px"
+        android:layout_height="145px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+
+        android:id="@+id/rel1"></RelativeLayout>
 
 </RelativeLayout>

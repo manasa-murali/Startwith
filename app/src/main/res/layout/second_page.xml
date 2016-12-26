@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_two">
@@ -10,6 +10,13 @@
         android:layout_height="match_parent"
         android:id="@+id/image_page2"
         />
+<RelativeLayout
+    android:layout_width="121px"
+    android:layout_height="112px"
+    android:layout_marginLeft="0px"
+    android:layout_alignParentLeft="true"
+    android:layout_marginTop="960px"
+    android:id="@+id/rel2">
+    </RelativeLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +23,7 @@ public class FifthScreen extends AppCompatActivity implements View.OnTouchListen
     int val[];
     int x,y;
     BoundedRect boundedRect5;
+    RelativeLayout relativeLayout5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +36,28 @@ public class FifthScreen extends AppCompatActivity implements View.OnTouchListen
         imageView5.getLocationOnScreen(val);
         boundedRect5=new BoundedRect(this);
         boundedRect5.setRectangleCoords(934,978,1070,978,934,1078,1070,1078);
+        relativeLayout5=(RelativeLayout)findViewById(R.id.rel5);
+        relativeLayout5.setOnTouchListener(this);
 
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        if(motionEvent.getAction()==MotionEvent.ACTION_UP)
+        {
+            relativeLayout5.setVisibility(View.INVISIBLE);
+        }
+
         if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
 
             int touchX=(int)motionEvent.getX();
             int touchY=(int)motionEvent.getY();
             x=touchX-val[0];
             y=touchY-val[1];
-          //  boundedRect5.showAllClickable();
+            boundedRect5.showAllClickable(relativeLayout5);
             if(boundedRect5.checkConstraints(x,y)==true)
             {
-             //   boundedRect5.showAllClickable();
+
                 Intent intent=new Intent(FifthScreen.this,SixthScreen.class);
                 startActivity(intent);
             }

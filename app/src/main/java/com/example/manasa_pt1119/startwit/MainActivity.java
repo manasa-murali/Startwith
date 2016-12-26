@@ -11,12 +11,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+
+
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener{
     ImageView imageView;
     BoundedRect boundedRect;
-    RelativeLayout relativeLayout;
+
+    RelativeLayout relativeLayout1;
 
     int x,y;
 
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         imageView.getLocationOnScreen(val);
         boundedRect=new BoundedRect(this);
         boundedRect.setRectangleCoords(870,1426,1078,1426,870,1578,1078,1578);
+        relativeLayout1=(RelativeLayout)findViewById(R.id.rel1);
+        relativeLayout1.setOnTouchListener(this);
+
 
 
 
@@ -39,16 +45,22 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+
+        if(motionEvent.getAction()==MotionEvent.ACTION_UP)
+        {
+            relativeLayout1.setVisibility(View.INVISIBLE);
+        }
         if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
 
             int touchX=(int)motionEvent.getX();
             int touchY=(int)motionEvent.getY();
             x=touchX-val[0];
             y=touchY-val[1];
-            boundedRect.showAllClickable(relativeLayout);
+          boundedRect.showAllClickable(relativeLayout1);
+
             if(boundedRect.checkConstraints(x,y)==true)
             {
-                boundedRect.showAllClickable(relativeLayout);
+
                 Intent intent=new Intent(MainActivity.this,SecondScreen.class);
                 startActivity(intent);
             }

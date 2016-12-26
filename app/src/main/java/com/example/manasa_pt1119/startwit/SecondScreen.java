@@ -18,9 +18,10 @@ import com.squareup.picasso.Picasso;
 
 public class SecondScreen extends AppCompatActivity implements View.OnTouchListener{
 
-    RelativeLayout relativeLayout2;
+
     ImageView imageView2;
     int val[];
+    RelativeLayout relativeLayout2;
     int x,y;
     BoundedRect boundedRect2;
     @Override
@@ -34,12 +35,19 @@ public class SecondScreen extends AppCompatActivity implements View.OnTouchListe
         imageView2.getLocationOnScreen(val);
         boundedRect2=new BoundedRect(this);
         boundedRect2.setRectangleCoords(0,970,121,970,0,1082,121,1082);
-        relativeLayout2=new RelativeLayout(getApplicationContext());
-        relativeLayout2.setId(R.id.rel1);
+        relativeLayout2=(RelativeLayout)findViewById(R.id.rel2);
+        relativeLayout2.setOnTouchListener(this);
+
+
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+
+        if(motionEvent.getAction()==MotionEvent.ACTION_UP)
+        {
+            relativeLayout2.setVisibility(View.INVISIBLE);
+        }
 
 
         if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
@@ -48,10 +56,10 @@ public class SecondScreen extends AppCompatActivity implements View.OnTouchListe
             int touchY=(int)motionEvent.getY();
             x=touchX-val[0];
             y=touchY-val[1];
-           // boundedRect2.showAllClickable();
+           boundedRect2.showAllClickable(relativeLayout2);
             if(boundedRect2.checkConstraints(x,y)==true)
             {
-               // boundedRect2.showAllClickable();
+
                 Intent intent=new Intent(SecondScreen.this,ThirdScreen.class);
                 startActivity(intent);
             }
